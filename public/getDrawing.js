@@ -1,18 +1,25 @@
+if(window.addEventListener) {
+window.addEventListener('load', function () {
+
+var canvas, context;
+
 function init()  {
-	var canvas = document.getElementById("drawingArea");
-	canvas.addEventListener('onmousedown', ev_handler, false);
-	canvas.addEventListener('onmousemove', ev_handler, false);
-	canvas.addEventListener('onmouseup', ev_handler, flase);
+	canvas = document.getElementById("drawingArea");
+ 	context = canvas.getContext('2d');	
+	canvas.addEventListener('mousedown', ev_handler, false);
+	canvas.addEventListener('mousemove', ev_handler, false);
+	canvas.addEventListener('mouseup', ev_handler, false);
 	
 }
 
-function ev_handler() {
+function ev_handler(ev) {
 	var x, y
 
 	if (ev.layerX || ev.layerX == 0) {
 		x = ev.layerX;
 		y = ev.layerY;
-	} else if (ev.offsetX || ev.offestX == 0 {
+	}
+	else if (ev.offsetX || ev.offestX == 0) {
 		x = ev.offsetX;
 		y = ev.offsetY;
 	}
@@ -22,13 +29,13 @@ function ev_handler() {
 }
 
 function createLine(type, point) {
-	if (type == 'onmousedown') {
+	if (type == 'mousedown') {
 		line = new Line(true, point);
 		draw(line);
-	} else if (type == 'onmousemove') {
+	} else if (type == 'mousemove') {
 		line.addPoint(point);
 		draw(line);
-	} else if (type == 'onmouseup') {
+	} else if (type == 'mouseup') {
 		line.addPoint(point);
 		line.setActive(false);
 		draw(line);
@@ -37,10 +44,9 @@ function createLine(type, point) {
 
 function draw(line) {
 	for(var i in line.points) {
-		canvas.beginPath();
-		canvas.arc(line.points[i].x, line.points[i].y, 10, 0, Math.PI*2, true);
-		canvas.closePath();
-		canvas.fill();
+		context.beginPath();
+		context.arc(line.points[i].x, line.points[i].y, 10, 0, Math.PI*2, true);
+		context.fill();
 	}
 }	
 
@@ -84,3 +90,9 @@ function addPoint(Point) {
 	this.addPoint.push(Point);
 }
 
+init();
+context.beginPath();
+context.arc(5,5,0,2*Math.PI, true);
+context.fill();
+
+}, false); }
