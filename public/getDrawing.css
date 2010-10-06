@@ -1,0 +1,7 @@
+#frame {
+	position: relative;
+}
+
+#drawingArea {
+	border:2px solid #000;
+}
