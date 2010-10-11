@@ -1,11 +1,12 @@
 if(window.addEventListener) {
 window.addEventListener('load', function () {
 
-var canvas, context;
+var canvas, context, line;
 
 function init()  {
 	canvas = document.getElementById("drawingArea");
  	context = canvas.getContext('2d');	
+	line = new Line();
 	canvas.addEventListener('mousedown', ev_handler, false);
 	canvas.addEventListener('mousemove', ev_handler, false);
 	canvas.addEventListener('mouseup', ev_handler, false);
@@ -32,10 +33,10 @@ function createLine(type, point) {
 	if (type == 'mousedown') {
 		line = new Line(true, point);
 		draw(line);
-	} else if (type == 'mousemove') {
+	} else if (type == 'mousemove' && line.isActive == true) {
 		line.addPoint(point);
 		draw(line);
-	} else if (type == 'mouseup') {
+	} else if (type == 'mouseup' && line.isActive == true) {
 		line.addPoint(point);
 		line.setActive(false);
 		draw(line);
@@ -60,6 +61,8 @@ function Point() {
 function Point(x,y) {
 	this.x = x;
 	this.y = y;
+	this.setX = setX;
+	this.setY = setY;
 }
 
 function setX(x) {
@@ -71,13 +74,15 @@ function setY(y) {
 }
 
 function Line() {
-	this.isActive;
+	this.isActive = false;
 	this.points;
 	this.setActive = setActive;
 	this.addPoint = addPoint;
 }
 
 function Line(isActive, startPoint) {
+	this.setActive = setActive;
+	this.addPoint = addPoint;	
 	this.isActive = isActive;
 	this.points = new Array(startPoint);
 }
@@ -86,8 +91,8 @@ function setActive(isActive) {
 	this.isActive = isActive;
 }
 
-function addPoint(Point) {
-	this.addPoint.push(Point);
+function addPoint(point) {
+	this.points.push(point);
 }
 
 init();
