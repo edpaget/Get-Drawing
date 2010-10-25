@@ -1,0 +1,12 @@
+0.1 - Single User with a Non-Customizable brush
+0.2 - Brush Size Customizable 
+0.3 - Brush Color Customizable
+0.4 - Text-input Support
+0.5 - Multi-user support
+0.6 - Create GUI
+0.7 - Build Website
+0.8 - Stress Test
+0.9 - Public Beta
+1.0 - Functioning 
+1.5 - Touch Interface...
+2.0 - Expanded Drawing Functionality
