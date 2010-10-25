@@ -1,25 +1,36 @@
 if(window.addEventListener) {
 window.addEventListener('load', function () {
 
-var canvas, context, line;
+var canvas, context, tool;
 
 function init()  {
+	
+	//init Canvas
 	canvas = document.getElementById("drawingArea");
  	context = canvas.getContext('2d');	
-	line = new Line();
-	canvas.addEventListener('mousedown', ev_handler, false);
-	canvas.addEventListener('mousemove', ev_handler, false);
-	canvas.addEventListener('mouseup', ev_handler, false);
+	canvas.addEventListener('mousedown', evHandler, false);
+	canvas.addEventListener('mousemove', evHandler, false);
+	canvas.addEventListener('mouseup', evHandler, false);
 	
+
+	//init Tools
+	var toolDropDown = document.getElementById('Tools');
+	toolDroopDown.addEventListener('change', toolChange, false);
 }
 
-function ev_handler(ev) {
-	var x, y
+function toolChange(ev) {
+	tool = 
 
+
+function evHandler(ev) {
+	var x, y
+	
+	//Firefox Handler
 	if (ev.layerX || ev.layerX == 0) {
 		x = ev.layerX;
 		y = ev.layerY;
 	}
+	//Opera and Webkit Handler
 	else if (ev.offsetX || ev.offestX == 0) {
 		x = ev.offsetX;
 		y = ev.offsetY;
@@ -44,11 +55,13 @@ function createLine(type, point) {
 }
 
 function draw(line) {
+	context.beginPath();
+	context.moveTo(line.points[0].x, line.points[0].y);
 	for(var i in line.points) {
-		context.beginPath();
-		context.arc(line.points[i].x, line.points[i].y, 10, 0, Math.PI*2, true);
-		context.fill();
+		context.lineTo(line.points[i].x, line.points[i].y);
 	}
+//	context.closePath();
+	context.stroke();
 }	
 
 function Point() {
