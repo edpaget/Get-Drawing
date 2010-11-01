@@ -30,6 +30,8 @@ function init()  {
 }
 
 function toolChange(ev) {
+	
+
 }
 
 function evHandler(ev) {
@@ -118,9 +120,9 @@ function addPoint(point) {
 	this.points.push(point);
 }
 
+function Tool() {
+	
+
 init();
-context.beginPath();
-context.arc(5,5,0,2*Math.PI, true);
-context.fill();
 
 }, false); }
