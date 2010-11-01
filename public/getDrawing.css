@@ -1,7 +1,12 @@
 #frame {
 	position: relative;
+	padding-top: .5em;
 }
 
 #drawingArea {
 	border:2px solid #000;
+}
+
+#wall {
+	display:none;
 }
