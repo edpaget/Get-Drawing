@@ -1,14 +1,16 @@
 <form>
 <select id="Tools">
-<option value="pencil">Pencil</option>
-<option value="brush">Brush</option>
-<option value="text">Text</option>
-<option value="circle">Circle</option>
-<option value="rectangle">Rectangle</option>
+<option value="Pencil">Pencil</option>
+<option value="Brush">Brush</option>
+<option value="Text">Text</option>
+<option value="Circle">Circle</option>
+<option value="Rectangle">Rectangle</option>
 </select>
 </form>
 
 <img id="wall" src="backgroundimages/<%= @picture%>.jpg" alt="Beware the Olympikkks" width="640" height="480" />
+<img id="brush" src="brushes/sprayBrush.png" alt="spray brush" width="25" height="25" />
+
 
 <div id="frame">
 	<canvas id="drawingArea" width="600" height="480"></canvas>
@@ -17,4 +19,7 @@
 <script type="text/javascript" src="javascript/line.js"></script>
 <script type="text/javascript" src="javascript/point.js"></script>
 <script type="text/javascript" src="javascript/pencil.js"></script>
+<script type="text/javascript" src="javascript/tool.js"></script>
+<script type="text/javascript" src="javascript/circle.js"></script>
+<script type="text/javascript" src="javascript/brush.js"></script>
 <script type="text/javascript" src="javascript/drawingEventHandler.js"></script>

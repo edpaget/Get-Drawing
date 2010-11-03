@@ -1,30 +1,48 @@
 function Pencil(color) {
-	this.createLine = createLine;
 	this.draw = draw;
 	this.color = color;
 	this.line = new Line();
 
-function createLine(type, point) {
+	function draw() {
+		context.beginPath();
+		context.moveTo(this.line.points[0].x, this.line.points[0].y);
+		for(var i in this.line.points) {
+			context.lineTo(this.line.points[i].x, this.line.points[i].y);
+		}
+		context.stroke();
+	}
+
+}
+
+Pencil.prototype.createLine = function (type, point) {
 	if (type == 'mousedown') {
-		line = new Line(true, point);
-		draw(line);
-	} else if (type == 'mousemove' && line.isActive == true) {
-		line.addPoint(point);
-		draw(line);
-	} else if (type == 'mouseup' && line.isActive == true) {
-		line.addPoint(point);
-		line.setActive(false);
-		draw(line);
+		this.line = new Line(true, point);
+		this.draw();
+	} else if (type == 'mousemove' && this.line.isActive == true) {
+		this.line.addPoint(point);
+		this.draw();
+	} else if (type == 'mouseup' && this.line.isActive == true) {
+		this.line.addPoint(point);
+		this.line.setActive(false);
+		this.draw();
 	}
-}
+};
 
-function draw(line) {
-	context.beginPath();
-	context.moveTo(line.points[0].x, line.points[0].y);
-	for(var i in line.points) {
-		context.lineTo(line.points[i].x, line.points[i].y);
-	}
-	context.stroke();
-}
 
-}	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

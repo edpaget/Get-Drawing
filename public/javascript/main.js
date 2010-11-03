@@ -23,10 +23,12 @@ function init()  {
 	//load background image
 	var wall = document.getElementById('wall');
 	context.drawImage(wall, 0, 0, width, (.75*width));
+	
 
 	//init Tools
 	var toolDropDown = document.getElementById('Tools');
-	toolDroopDown.addEventListener('change', toolChange, false);
+	toolDropDown.addEventListener('change', toolChange, false);
+	tool = new Tool(new Pencil());
 
 }
 

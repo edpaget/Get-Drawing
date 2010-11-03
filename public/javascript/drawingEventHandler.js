@@ -15,3 +15,10 @@ function evHandler(ev) {
 	tool.toolResponder(ev.type, new Point(x,y));
 
 }
+
+function toolChange(ev) {
+	var toolName = window[this['value']];
+	if (typeof toolName === 'function') {	
+		tool = new Tool(new toolName());
+	}
+}
