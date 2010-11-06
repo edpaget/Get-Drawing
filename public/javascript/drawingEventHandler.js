@@ -18,7 +18,7 @@ function evHandler(ev) {
 
 function toolChange(ev) {
 	var toolName = window[this['value']];
-	if (typeof toolName === 'function') {	
+	if (typeof(toolName) === 'function') {
 		tool = new Tool(new toolName());
 	}
 }
