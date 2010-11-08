@@ -12,6 +12,10 @@ Tool.prototype.toolResponder = function (ev, point) {
 };
 
 Tool.prototype.toolToJSON = function () {
-	var toolJSON = JSON.stringify(tool);
+	if (this.type.name == "Brush") {
+		this.type.brush = null;
+	}	
+	var toolJSON = JSON.stringify(this);
 	alert(toolJSON);
+
 };

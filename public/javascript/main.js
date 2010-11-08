@@ -1,4 +1,4 @@
-var context, canvas, tool;
+var context, canvas, tool, brush;
 
 if(window.addEventListener) {
 window.addEventListener('load', function () {
@@ -24,6 +24,7 @@ function init()  {
 	var wall = document.getElementById('wall');
 	context.drawImage(wall, 0, 0, width, (.75*width));
 	
+	brush = document.getElementById('brush');
 
 	//init Tools
 	var toolDropDown = document.getElementById('Tools');

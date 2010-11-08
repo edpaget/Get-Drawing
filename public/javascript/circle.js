@@ -1,4 +1,5 @@
 function Circle() {
+	this.name = "Circle";
 	this.center;
 	this.radius;
 	this.draw = draw;

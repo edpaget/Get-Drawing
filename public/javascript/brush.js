@@ -1,11 +1,11 @@
 function Brush() {
+	this.name = "Brush";
 	this.line = new Line();
 	this.draw = draw;
-	this.brush = document.getElementById("brush");
 
 	function draw() {
 		for(var i in this.line.points) {
-			context.drawImage(this.brush, this.line.points[i].x, this.line.points[i].y);
+			context.drawImage(brush, this.line.points[i].x, this.line.points[i].y);
 		}
 	}
 }

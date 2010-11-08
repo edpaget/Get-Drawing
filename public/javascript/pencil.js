@@ -1,4 +1,5 @@
 function Pencil(color) {
+	this.name = "Pencil";
 	this.draw = draw;
 	this.color = color;
 	this.line = new Line();
