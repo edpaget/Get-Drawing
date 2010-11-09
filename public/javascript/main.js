@@ -15,14 +15,10 @@ function init()  {
 	canvas.addEventListener('mousedown', evHandler, false);
 	canvas.addEventListener('mousemove', evHandler, false);
 	canvas.addEventListener('mouseup', evHandler, false);
-	
-	//resize Canvas
-	canvas.width = width;
-	canvas.height = .75*width;
 
 	//load background image
 	var wall = document.getElementById('wall');
-	context.drawImage(wall, 0, 0, width, (.75*width));
+	context.drawImage(wall, 0, 0, 1000, 750);
 	
 	brush = document.getElementById('brush');
 
