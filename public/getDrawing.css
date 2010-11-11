@@ -1,5 +1,6 @@
 body {
 	font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+	font-size: 10pt;
 }
 
 #index {
@@ -23,3 +24,4 @@ body {
 #brush {
 	display:none;
 }
+

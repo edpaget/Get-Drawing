@@ -1,12 +1,25 @@
-<form>
-<select id="Tools">
-<option value="Pencil">Pencil</option>
-<option value="Brush">Brush</option>
-<option value="Text">Text</option>
-<option value="Circle">Circle</option>
-<option value="Rectangle">Rectangle</option>
-</select>
-</form>
+	<label>Tools:</label>
+	<form>
+		<select id="Tools">
+			<option value="Pencil">Pencil</option>
+			<option value="Brush">Brush</option>
+			<option value="Text">Text</option>
+			<option value="Circle">Circle</option>
+			<option value="Rectangle">Rectangle</option>
+		</select>
+	</form>
+
+	<label>Colors:</label>
+	<form id="colorselect">
+		<select id="Color">
+			<option value="black">Black</option>
+			<option value="white">White</option>
+			<option value="blue">Blue</option>
+			<option value="red">Red</option>
+			<option value="green">Green</option>
+			<option value="purple">Purple</option>
+		</select>
+	</form>
 
 <img id="wall" src="backgroundimages/<%= @picture%>.jpg" alt="Beware the Olympikkks" width="640" height="480" />
 <img id="brush" src="brushes/sprayBrush.png" alt="spray brush" width="25" height="25" />
@@ -22,5 +35,6 @@
 <script type="text/javascript" src="javascript/tool.js"></script>
 <script type="text/javascript" src="javascript/circle.js"></script>
 <script type="text/javascript" src="javascript/brush.js"></script>
+<script type="text/javascript" src="javascript/rectangle.js"></script>
 <script type="text/javascript" src="javascript/drawingEventHandler.js"></script>
 <p><a href="wall">First</a> | <a href="wall2">Second</a> | <a href="wall3">Third</a></p>

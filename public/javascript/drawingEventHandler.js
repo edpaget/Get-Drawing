@@ -18,7 +18,21 @@ function evHandler(ev) {
 
 function toolChange(ev) {
 	var toolName = window[this['value']];
+	var color = getCurrentColor();
 	if (typeof(toolName) === 'function') {
-		tool = new Tool(new toolName());
+		tool = new Tool(new toolName(color));
 	}
 }
+
+function colorChange(ev) {
+	var color = this['value'];
+	tool.type.color = color;
+	
+}
+
+function getCurrentColor() {
+	var colorDropDown = document.getElementById('Color');
+	return colorDropDown.value;
+}
+
+

@@ -1,6 +1,7 @@
-function Brush() {
+function Brush(color) {
 	this.name = "Brush";
 	this.line = new Line();
+	this.color = color;
 	this.draw = draw;
 
 	function draw() {

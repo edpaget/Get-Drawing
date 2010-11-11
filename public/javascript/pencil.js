@@ -10,6 +10,7 @@ function Pencil(color) {
 		for(var i in this.line.points) {
 			context.lineTo(this.line.points[i].x, this.line.points[i].y);
 		}
+		context.strokeStyle = this.color;
 		context.stroke();
 	}
 

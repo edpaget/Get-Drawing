@@ -1,7 +1,8 @@
-function Circle() {
+function Circle(color) {
 	this.name = "Circle";
 	this.center;
 	this.radius;
+	this.color = color;
 	this.draw = draw;
 	this.calcRadius = calcRadius;
 
@@ -9,6 +10,7 @@ function Circle() {
 		context.beginPath();
 		context.arc(this.center.x, this.center.y, this.radius,  0, Math.PI*2, true);
 		context.closePath();
+		context.fillStyle = this.color;
 		context.fill();
 	}
 	

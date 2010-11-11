@@ -25,8 +25,12 @@ function init()  {
 	//init Tools
 	var toolDropDown = document.getElementById('Tools');
 	toolDropDown.addEventListener('change', toolChange, false);
-	tool = new Tool(new Pencil());
+	tool = new Tool(new Pencil('black'));
 
+	//init Colors
+	var colorDropDown = document.getElementById('Color');
+	colorDropDown.addEventListener('change', colorChange, false);
+	
 }
 
 	

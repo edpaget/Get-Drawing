@@ -1,30 +1,40 @@
-function Rectangle() {
+function Rectangle(color) {
 	this.name = "Rectangle";
-	this.center;
-	this.radius;
-	this.draw = draw;
-	this.calcRadius = calcRadius;
+	this.color = color;
+	this.startPoint;
+	this.endPoint;
+	this.height;
+	this.width;
 
+	this.draw = draw;
+	this.calcHeight = calcHeight;
+	this.calcWidth = calcWidth;
+ 
 	function draw() {
 		context.beginPath();
-		context.arc(this.center.x, this.center.y, this.radius,  0, Math.PI*2, true);
+		context.rect(this.startPoint.x, this.startPoint.y, this.width, this.height);
 		context.closePath();
+		context.fillStyle = this.color;
 		context.fill();
 	}
+
+	function calcHeight() {
+		return -(this.startPoint.y - this.endPoint.y);
+	}
 	
-	function calcRadius(endPoint) {
-		y = Math.pow((this.center.y - endPoint.y), 2);
-		x = Math.pow((this.center.x - endPoint.x), 2);
-		return Math.sqrt(y+x);
+	function calcWidth() {
+		return -(this.startPoint.x - this.endPoint.x);
 	}
 
 }
 
-Circle.prototype.createLine = function (type, point) {
+Rectangle.prototype.createLine = function (type, point) {
 	if (type == 'mousedown') {
-		this.center = point;
+		this.startPoint = point;
 	} else if (type == 'mouseup') {
-		this.radius = this.calcRadius(point);
+		this.endPoint = point
+		this.height = this.calcHeight();
+		this.width = this.calcWidth();
 		this.draw();
 	}
 };
