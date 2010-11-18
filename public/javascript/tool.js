@@ -16,9 +16,9 @@ Tool.prototype.toolToJSON = function () {
 		this.type.brush = null;
 	}	
 	var toolJSON = JSON.stringify(this);
-	var url = "reciever"
-	xmlHttp.open('POST', url, true);
-	xmlHttp.onreadystatechange = updatePage;
-	xmlHttp.setRequest("Content-Type", "application/x-www-form-urlencoded");
-	xmlHttp.send(toolJSON);
+	var url = "2/reciever"
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open('POST', url, true);
+	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xmlhttp.send(toolJSON);
 };
