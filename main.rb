@@ -19,12 +19,11 @@ end
 class Tools < ActiveRecord::Base
 end
 
-post '/:title/reciever/?' do |title|
-	jsonData = params[:data]
-	toolFromJSON = JSON.parse(jsonData)
-	Tools.create(:tool => toolFromJSON, :picture => title)
+post '/:title/receiver' do |title|
+	toolFromJSON = JSON.parse(request.body.read)
+	Tools.create(:json => toolFromJSON, :picture => title)
 end
 
-get '/sender/:picture' do
-	
+get '/:title/sender?' do |title|
+	"10"	
 end  
