@@ -38,3 +38,10 @@ Rectangle.prototype.createLine = function (type, point) {
 		this.draw();
 	}
 };
+
+Rectangle.prototype.responseDraw = function(response) {
+	this.height = response.type.height;
+	this.width = response.type.width;
+	this.startPoint = response.type.startPoint;
+	this.draw();
+};

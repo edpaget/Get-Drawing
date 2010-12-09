@@ -17,30 +17,34 @@ Tool.prototype.toolToJSON = function () {
 		this.type.brush = null;
 	}	
 	var toolJSON = JSON.stringify(this);
-	var url = document.location.href + "/reciever"; 
-	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.open('POST', url, true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.send(toolJSON);
+	var url = document.location.href + "/receiver"; 
+	var update = new XMLHttpRequest();
+	update.open("POST", url, true);
+	update.setRequestHeader("Content-Type", "application/json");
+	update.send(toolJSON);
 };
 
 Tool.prototype.updateImage = function () {
-	var xmlhttp = new XMLHttpRequest();
-	var url = "2/sender?time=" + this.lastUpdate;
-	xmlhttp.open('GET', url, true);
-	xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	xmlhttp.onreadystatechange = parseResponse;  
-	xmlhttp.send();
+	var receive = new XMLHttpRequest();
+	var url = document.location.href + "/sender/" + escape(this.lastUpdate);
+	receive.open('GET', url, true);
+	receive.setRequestHeader("Content-Type", "text/plain");
+	receive.onreadystatechange = parseResponse;  
+	receive.send();
 	
 	function parseResponse() {
-		if (xmlhttp.readystate !=4) {
-			return;
+		if (receive.readyState == 4 && receive.responseText != "[]") {
+			var response = JSON.parse(receive.responseText);
+			for (var i in response){
+				response[i] = JSON.parse(response[i].attributes.json);
+				var responseTool  = new window[response[i].type['name']](response[i].type.color);
+				responseTool.responseDraw(response[i]);
+			}
 		} else {
-			var responseTool = JSON.parse(xmlhttp.responseText);
-			responseTool.type.draw();
+			return;
 		}
 	}
-	this.lastUpdate = Math.round(new Date().getTime() / 1000);
+	this.lastUpdate = new Date().toString();
 };
 
 

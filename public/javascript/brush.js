@@ -25,3 +25,8 @@ Brush.prototype.createLine = function (type, point) {
 		tool = new Tool(new Brush());
 	}
 }
+
+Brush.prototype.responseDraw = function (response) {
+	this.line = response.type.line;
+	this.draw();
+};

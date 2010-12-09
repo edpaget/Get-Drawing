@@ -37,6 +37,8 @@ function init()  {
 
 init();
 
+tool.updateImage();
+
 setInterval("tool.updateImage()", 5000); 
 
 }, false); }

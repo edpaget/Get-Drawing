@@ -2,7 +2,17 @@ function Pencil(color) {
 	this.name = "Pencil";
 	this.color = color;
 	this.line = new Line();
-
+	this.draw = draw;
+	
+	function draw() {
+		context.beginPath();
+		context.moveTo(this.line.points[0].x, this.line.points[0].y);
+		for(var i in this.line.points) {
+			context.lineTo(this.line.points[i].x, this.line.points[i].y);
+		}
+		context.strokeStyle = this.color;
+		context.stroke();
+	};
 }
 
 Pencil.prototype.createLine = function (type, point) {
@@ -19,18 +29,10 @@ Pencil.prototype.createLine = function (type, point) {
 	}
 };
 
-Pencil.prototype.draw = function () {
-	context.beginPath();
-	context.moveTo(this.line.points[0].x, this.line.points[0].y);
-	for(var i in this.line.points) {
-		context.lineTo(this.line.points[i].x, this.line.points[i].y);
-	}
-	context.strokeStyle = this.color;
-	context.stroke();
+Pencil.prototype.responseDraw = function (response) {
+	this.line = response.type.line;
+	this.draw();
 };
-
-
-
 
 
 

@@ -30,3 +30,9 @@ Circle.prototype.createLine = function (type, point) {
 		this.draw();
 	}
 };
+
+Circle.prototype.responseDraw = function (response) {
+	this.center = response.type.center;
+	this.radius = response.type.radius;
+	this.draw();
+};
