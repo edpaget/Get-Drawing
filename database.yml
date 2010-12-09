@@ -1,6 +1,0 @@
-adapter: mysql
-encoding: utf8
-database: atpnn_epa275
-username: atpnn_epa275
-password: drawing-for-the-past-present-future
-socket: /var/mysql/mysql.sock
