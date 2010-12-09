@@ -11,7 +11,8 @@ function init()  {
 
 	//init Canvas
 	canvas = document.getElementById("drawingArea");
- 	context = canvas.getContext('2d');	
+ 	context = canvas.getContext('2d');
+	context.font = "18pt Helvetica"	
 	canvas.addEventListener('mousedown', evHandler, false);
 	canvas.addEventListener('mousemove', evHandler, false);
 	canvas.addEventListener('mouseup', evHandler, false);

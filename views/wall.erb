@@ -1,32 +1,47 @@
-	<label>Tools:</label>
-	<form>
-		<select id="Tools">
-			<option value="Pencil">Pencil</option>
-			<option value="Brush">Brush</option>
-			<option value="Text">Text</option>
-			<option value="Circle">Circle</option>
-			<option value="Rectangle">Rectangle</option>
-		</select>
-	</form>
+<table>
+<tr><td>Tools:</td>
+<td><form>
+	<select id="Tools">
+		<option value="Pencil">Pencil</option>
+		<option value="Brush">Brush</option>
+		<option value="Text">Text</option>
+		<option value="Circle">Circle</option>
+		<option value="Rectangle">Rectangle</option>
+	</select>
+</form></td>
 
-	<label>Colors:</label>
-	<form id="colorselect">
-		<select id="Color">
-			<option value="black">Black</option>
-			<option value="white">White</option>
-			<option value="blue">Blue</option>
-			<option value="red">Red</option>
-			<option value="green">Green</option>
-			<option value="purple">Purple</option>
-		</select>
-	</form>
+<td>Colors:</td>
+<td><form id="colorselect">
+	<select id="Color">
+		<option value="black">Black</option>
+		<option value="white">White</option>
+		<option value="blue">Blue</option>
+		<option value="red">Red</option>
+		<option value="green">Green</option>
+		<option value="purple">Purple</option>
+	</select>
+</form></td>
+
+<td id="first"><a href="about.html">About</a></td>
+<td> | </td>
+<td class="navigation"><a href="https://github.com/edpaget/Get-Drawing" target="_blank">Code</a></td>
+<td> | </td>
+<td class="navigation"><a href="<%= @title%>/history">Page History</a></td>
+<td> | </td>
+<td class="navigation"><a href="<%= @previous%>">Previous</a></td>
+<td> | </td>
+<td class="navigation"><a href="<%= @next%>">Next</a></td>
+
+</tr></table>
+
+
 
 <img id="wall" src="backgroundimages/<%= @picture%>.jpg" alt="Beware the Olympikkks" width="640" height="480" />
 <img id="brush" src="brushes/sprayBrush.png" alt="spray brush" width="25" height="25" />
 
 
 <div id="frame">
-	<canvas id="drawingArea" width="1000" height="750"></canvas>
+	<canvas id="drawingArea" width="1000" height="644"></canvas>
 </div>
 <script type="text/javascript" src="javascript/main.js"></script>
 <script type="text/javascript" src="javascript/line.js"></script>
@@ -36,5 +51,8 @@
 <script type="text/javascript" src="javascript/circle.js"></script>
 <script type="text/javascript" src="javascript/brush.js"></script>
 <script type="text/javascript" src="javascript/rectangle.js"></script>
+<script type="text/javascript" src="javascript/text.js"></script>
 <script type="text/javascript" src="javascript/drawingEventHandler.js"></script>
-<p><a href="wall">First</a> | <a href="wall2">Second</a> | <a href="wall3">Third</a></p>
+</br>
+<p class="footer"><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</p>
+<p class="footer">Code for GetDrawing is Licensed under the <a href="LICENSE.txt">Affero General Public License</a></p>

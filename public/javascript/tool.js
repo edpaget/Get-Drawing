@@ -47,5 +47,33 @@ Tool.prototype.updateImage = function () {
 	this.lastUpdate = new Date().toString();
 };
 
+Tool.prototype.historyTimeLapse = function () {
+	var receive = new XMLHttpRequest(); 
+	var url = document.location.href;
+	url = url.substring(0, url.length-8) + "/sender/all";
+	receive.open('GET', url, true);
+	receive.setRequestHeader("Content-Type", "text/plain");
+	receive.onreadystatechange = historyPlayback;
+	receive.send();
 
+	function historyPlayback() {
+		if (receive.readyState == 4 && receive.responseText != "[]") {
+			var response = JSON.parse(receive.responseText);
+			timeLapse(0, response);		
+		} else {
+			return;
+		}
+	}
+}
+
+function timeLapse(i, response) {
+	if (i < response.length) {
+		response[i] = JSON.parse(response[i].attributes.json);
+		var responseTool = new window[response[i].type['name']](response[i].type.color);
+		responseTool.responseDraw(response[i]);
+		setTimeout(function () {timeLapse(i + 1, response);}, 500);
+	} else {
+		return;
+	}
+}	
 	 

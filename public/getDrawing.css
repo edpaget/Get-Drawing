@@ -25,3 +25,31 @@ body {
 	display:none;
 }
 
+a {
+	text-decoration: none;
+}
+
+td.navigation {
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+#first {
+	padding-left: 200px;
+	padding-right: 30px;
+}
+
+p.footer {
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 0em;
+}
+
+div.about {
+	text-align: left;
+	font-size: 12pt;
+	width: 400px;
+	padding: 5px;
+}
